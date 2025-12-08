@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className={scss.container}>
       <div className="container">
-        <div className={scss.mainContainer}></div>
+        <div className={scss.mainContainer}>alihan</div>
       </div>
     </header>
   );
