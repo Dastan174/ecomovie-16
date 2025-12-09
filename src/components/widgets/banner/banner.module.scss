@@ -1,0 +1,87 @@
+.mainContainer {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/38/Stranger_Things_logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  .text {
+    max-width: 900px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.1em;
+      background-color: #fff;
+      margin-left: 10px;
+      animation: blink 0.8s step-end infinite;
+      vertical-align: middle;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: 2px;
+    }
+
+    @keyframes blink {
+      from,
+      to {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+    h1 {
+      font-size: 79px;
+      width: 100%;
+      text-shadow: -2px -2px 0 purple, 2px -2px 0 purple, -2px 2px 0 purple,
+        2px 2px 0 purple;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .mainContainer {
+    .text {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .mainContainer {
+    .text {
+      width: 100%;
+      h1 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .mainContainer {
+    .text {
+      width: 100%;
+      h1 {
+        font-size: 36px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
