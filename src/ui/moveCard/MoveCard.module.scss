@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  gap: 10px;
+
+  .poster {
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .category {
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+
+    span {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      background: #e84393;
+      color: white;
+    }
+  }
+
+  .ratingCircle {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    width: 55px;
+    height: 55px;
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+  }
+
+  .cardText {
+    margin-top: 25px;
+
+    h3 {
+      color: white;
+      font-size: 16px;
+    }
+
+    span {
+      color: #999;
+      font-size: 14px;
+    }
+  }
+}
+
