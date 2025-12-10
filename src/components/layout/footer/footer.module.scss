@@ -1,0 +1,64 @@
+
+.container {
+  padding: 20px;
+  background-color: black;
+
+  a {
+    color: aliceblue;
+  }
+  a:hover{
+    color:rgba(165, 57, 100, 0.8) ;
+  }
+  p {
+    color: aliceblue;
+  }
+  .footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .ferst {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 15px;
+      .palm {
+        padding: 23px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+  }
+  .past {
+    padding-block: 23px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    span {
+      width: 50px;
+      height: 50px;
+      padding-block: 20px;
+      background-color: rgb(13, 20, 53);
+      border-radius: 50px;
+      font-size: 23px;
+      color: aliceblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      transition: box-shadow 0.3s ease; // плавный переход
+
+      &:hover {
+        box-shadow: 0 0 10px 3px rgba(149, 17, 70, 0.8); // тёмно-красная тень при наведении
+        color:rgba(149, 17, 70, 0.8);
+        cursor: pointer; // курсор указатель для интерактивности
+      }
+     
+        
+    }
+  }
+}
