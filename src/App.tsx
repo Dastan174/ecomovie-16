@@ -7,7 +7,7 @@ import DetailPage from "./components/pages/detailPage/DetailPage";
 const App = () => {
   return (
     <>
-       <MainRoutes />;
+      <MainRoutes />
     </>
   );
 };

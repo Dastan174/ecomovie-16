@@ -1,25 +1,41 @@
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import scss from "./MoveCard.module.scss";
+import { useNavigate } from "react-router-dom";
 
-const MoveCard = () => {
+interface MovieProps {
+  movie: IMovie;
+}
+
+interface IMovie {
+  image: string;
+  name: string;
+  date: string;
+  rating: number;
+  categories: string[];
+  id: number;
+}
+
+const MoveCard = ({ movie }: MovieProps) => {
+  const navigate = useNavigate();
   return (
-    <div className={scss.card}>
+    <div
+      onClick={() => navigate(`/${movie}/${movie.id}`)}
+      className={scss.card}
+    >
       <div className={scss.poster}>
-        <img
-          src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-          alt=""
-        />
+        <img src={movie.image} alt="" />
 
         <div className={scss.category}>
-          <span>Animation</span>
-          <span>Comedy</span>
+          {movie.categories.map((item, idx) => (
+            <span key={idx}>{item}</span>
+          ))}
         </div>
 
         <div className={scss.ratingCircle}>
           <CircularProgressbar
-            value={77}
-            text="7.7"
+            value={movie.rating}
+            text={movie.rating.toString()}
             background
             styles={buildStyles({
               backgroundColor: "#ffffffff",
@@ -33,8 +49,8 @@ const MoveCard = () => {
       </div>
 
       <div className={scss.cardText}>
-        <h3>Zootopia 2</h3>
-        <span>Nov 26, 2025</span>
+        <h3>{movie.name}</h3>
+        <span>{movie.date}</span>
       </div>
     </div>
   );

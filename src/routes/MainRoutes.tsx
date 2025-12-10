@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Home from "../components/pages/home/Home";
 
 const MainRoutes = () => {
   const routes = [
-    { link: "/", element: "" },
+    { link: "/", element: <Home /> },
     { link: "/", element: "" },
     { link: "/", element: "" },
   ];
