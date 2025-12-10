@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import scss from "./movie.module.scss";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import MoveCard from "../../../ui/moveCard/MoveCard";
 
 const MovieCarousel = () => {
   const [click, setClick] = useState<boolean>(false);
@@ -31,6 +32,46 @@ const MovieCarousel = () => {
       setClick(true);
     }
   }
+
+  const movies = [
+    {
+      name: "Zootopia",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
+      date: "10 december",
+      rating: 7.0,
+      categories: ["animation", "drama"],
+      id: 1,
+    },
+    {
+      name: "Zootopia",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
+      date: "10 december",
+      rating: 7.0,
+      categories: ["animation", "drama"],
+      id: 1,
+    },
+    {
+      name: "Zootopia",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
+      date: "10 december",
+      rating: 7.0,
+      categories: ["animation", "drama"],
+      id: 1,
+    },
+    {
+      name: "Zootopia",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
+      date: "10 december",
+      rating: 7.0,
+      categories: ["animation", "drama"],
+      id: 1,
+    },
+  ];
+
   return (
     <div className={scss.container}>
       <div className="container">
@@ -63,86 +104,9 @@ const MovieCarousel = () => {
 
           <div ref={scrollRef} className={scss.cardBar}>
             <div className={scss.cards}>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
-              <div className={scss.card}>
-                <img
-                  src="https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg"
-                  alt="photo"
-                />
-                <div className={scss.cardText}>
-                  <h4>Zootopia 2</h4>
-                  <p>Nov 26, 2025</p>
-                </div>
-              </div>
+              {movies.map((el, idx) => (
+                <MoveCard movie={el} key={idx} />
+              ))}
             </div>
           </div>
 
