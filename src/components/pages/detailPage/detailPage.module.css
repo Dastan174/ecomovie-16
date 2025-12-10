@@ -1,0 +1,23 @@
+.container {
+  background-image: url(https://image.tmdb.org/t/p/original/kfXgo2rMF1A19celCwLyQ4Xwpf8.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  padding-bottom: 20px;
+}
+.container .bg {
+  background-color: rgba(4, 21, 45, 0.8823529412);
+}
+.container .bg .mainContainer {
+  display: flex;
+  padding-block: 40px;
+}
+.container .bg .mainContainer img {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 12px;
+}
+.container .bg .mainContainer .cardDetails h1 {
+  font-weight: 300;
+}/*# sourceMappingURL=detailPage.module.css.map */
