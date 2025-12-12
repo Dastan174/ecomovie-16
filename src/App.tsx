@@ -1,13 +1,11 @@
 import MainRoutes from "./routes/MainRoutes";
-import Header from "./components/layout/header/Header";
-import Footer from "./components/layout/footer/Footer";
-
-import DetailPage from "./components/pages/detailPage/DetailPage";
+import PageLayout from "./ui/pageLayout/PageLayout";
 
 const App = () => {
   return (
     <>
       <MainRoutes />
+      <PageLayout/>
     </>
   );
 };
