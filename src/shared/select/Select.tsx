@@ -7,6 +7,7 @@ const Select = () => {
   const [openRight, setOpenRight] = useState(false);
 
   const genres = ["Action", "Comedy", "Drama", "Horror"];
+  const sort = ["Popularity", "Release Date", "Rating"];
 
   return (
     <div className={scss.selects}>
@@ -32,18 +33,19 @@ const Select = () => {
 
       <div className={scss.selectRight}>
         <div className={scss.select} onClick={() => setOpenRight(!openRight)}>
-          <input type="text" placeholder="Sort by"  />
+          <input type="text" placeholder="Sort by" />
           <span>|</span>
           <span>
             <IoChevronDownOutline />
           </span>
         </div>
-
         {openRight && (
           <div className={scss.dropdown}>
-            <div className={scss.item}>Popular</div>
-            <div className={scss.item}>Top rated</div>
-            <div className={scss.item}>Date</div>
+            {sort.map((el) => (
+              <div className={scss.item} key={el}>
+                {el}
+              </div>
+            ))}
           </div>
         )}
       </div>
