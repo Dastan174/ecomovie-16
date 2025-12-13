@@ -1,15 +1,23 @@
 .pageLayout {
-    padding-block: 40px;
-    .content {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        .pagesList {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            
-        }
+  padding-block: 80px;
+
+  .list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 50px;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    .pagesList {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+  }
 }

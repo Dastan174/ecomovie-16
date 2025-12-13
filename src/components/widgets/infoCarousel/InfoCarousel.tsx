@@ -3,12 +3,12 @@ import TrailerCard from "../../../ui/TrailerCard/TrailerCard.tsx";
 import scss from "./infoCarousel.module.scss";
 
 export interface IData {
-  text: string;
-  image: string;
-  imageT: string;
-  name: string;
-  role: string;
-  id: number;
+  text?: string;
+  image?: string;
+  imageT?: string;
+  name?: string;
+  role?: string;
+  id?: number;
 }
 
 export interface InfoCarouselProps {

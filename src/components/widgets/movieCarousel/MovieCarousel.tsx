@@ -3,8 +3,13 @@ import scss from "./movie.module.scss";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import MoveCard from "../../../ui/moveCard/MoveCard";
+import type { Movie } from "../../../hooks/types";
 
-const MovieCarousel = () => {
+interface MovieCarouselProps {
+  title: string;
+  data: Movie[];
+}
+const MovieCarousel = ({ title, data }: MovieCarouselProps) => {
   const [click, setClick] = useState<boolean>(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const cardWidth = 220;
@@ -33,51 +38,12 @@ const MovieCarousel = () => {
     }
   }
 
-  const movies = [
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-  ];
-
   return (
     <div className={scss.container}>
       <div className="container">
         <div className={scss.mainContainer}>
           <div className={scss.mainText}>
-            <h3>Trending</h3>
+            <h3>{title}</h3>
             <div className={scss.btns} onClick={clicked}>
               {click ? (
                 <button>Day</button>
@@ -104,7 +70,7 @@ const MovieCarousel = () => {
 
           <div ref={scrollRef} className={scss.cardBar}>
             <div className={scss.cards}>
-              {movies.map((el, idx) => (
+              {data?.map((el, idx) => (
                 <MoveCard movie={el} key={idx} />
               ))}
             </div>

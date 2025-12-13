@@ -1,42 +1,33 @@
-.mainContainer {
-  padding-left: 50px;
+.actors {
   display: flex;
   flex-direction: column;
-  padding-block: 40px;
-  gap: 50px;
-  color: #fff;
-  background: rgb(0, 0, 83);
-  .actors {
+  gap: 20px;
+
+  .carousel {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .carouselTrack {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
+    white-space: nowrap;
+  }
 
-    .carousel {
-      overflow-x: auto;
-      overflow-y: hidden;
-      width: 100%;
-      padding-bottom: 20px;
-    }
-
-    .carousel::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-
-    .carouselTrack {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      white-space: nowrap;
-    }
-
-    .carouselItem {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      gap: 20px;
-    }
+  .carouselItem {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
   }
 
   .trailers {
