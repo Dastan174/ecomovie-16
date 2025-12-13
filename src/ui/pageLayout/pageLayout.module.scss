@@ -1,0 +1,15 @@
+.pageLayout {
+    padding-block: 40px;
+    .content {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        .pagesList {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+    }
+}

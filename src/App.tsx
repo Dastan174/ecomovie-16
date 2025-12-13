@@ -1,9 +1,9 @@
-import InfoCarousel from "./components/widgets/infoCarousel/InfoCarousel";
+import MainRoutes from "./routes/MainRoutes";
 
 const App = () => {
   return (
     <>
-      {/* <MainRoutes /> */} <InfoCarousel />
+       <MainRoutes /> 
     </>
   );
 };
