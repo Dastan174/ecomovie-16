@@ -1,13 +1,9 @@
-import MainRoutes from "./routes/MainRoutes";
-import Header from "./components/layout/header/Header";
-import Footer from "./components/layout/footer/Footer";
-
-import DetailPage from "./components/pages/detailPage/DetailPage";
+import InfoCarousel from "./components/widgets/infoCarousel/InfoCarousel";
 
 const App = () => {
   return (
     <>
-      <MainRoutes />
+      {/* <MainRoutes /> */} <InfoCarousel />
     </>
   );
 };

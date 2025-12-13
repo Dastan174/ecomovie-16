@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 20px;
+  p {
+    max-width: 310px;
+  }
+  img {
+    width: 310px;
+    height: 180px;
+    border-radius: 20px;
+  }
+}
