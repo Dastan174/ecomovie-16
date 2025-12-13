@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/pages/home/Home";
+import Error from "../components/error/Error";
 
 const MainRoutes = () => {
   const routes = [
     { link: "/", element: <Home /> },
-    { link: "/", element: "" },
+    { link: "*", element: <Error /> },
     { link: "/", element: "" },
   ];
   return (
