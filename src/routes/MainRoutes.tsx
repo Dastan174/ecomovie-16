@@ -1,13 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/pages/home/Home";
-import Error from "../components/error/Error";
+import DetailPage from "../components/pages/detailPage/DetailPage";
+import PageLayout from "../ui/pageLayout/PageLayout";
 
 const MainRoutes = () => {
   const routes = [
     { link: "/", element: <Home /> },
-    { link: "*", element: <Error /> },
-    { link: "/", element: "" },
+    { link: "/movie/:id", element: <DetailPage /> },
+    { link: "/explore/:type", element: <PageLayout /> },
   ];
   return (
     <Routes>

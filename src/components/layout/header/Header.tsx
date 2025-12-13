@@ -24,8 +24,10 @@ export default function Header() {
 
             <div className={scss.nigth}>
               <nav>
-                <Link to="/">Movies</Link>
-                <Link to="/tv-shows">TV Shows</Link>
+                <GiHamburgerMenu />
+
+                <Link to="/explore/movie">Movies</Link>
+                <Link to="/explore/tv">TV Shows</Link>
                 <CiSearch />
               </nav>
             </div>

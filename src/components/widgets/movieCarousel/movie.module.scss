@@ -61,6 +61,10 @@
   align-items: center;
   gap: 10px;
   position: relative;
+  button{
+    z-index: 100
+    ;
+  }
 }
 
 .btn {
@@ -93,9 +97,9 @@
 }
 
 .cards {
+  z-index: -1;
   display: flex;
   flex-direction: row;
-
   gap: 25px;
 }
 
