@@ -2,40 +2,36 @@ import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import scss from "./MoveCard.module.scss";
 import { useNavigate } from "react-router-dom";
+import type { Movie } from "../../hooks/types";
 
 interface MovieProps {
-  movie: IMovie;
-}
-
-interface IMovie {
-  image: string;
-  name: string;
-  date: string;
-  rating: number;
-  categories: string[];
-  id: number;
+  movie: Movie;
 }
 
 const MoveCard = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
+
   return (
     <div
       onClick={() => navigate(`/${movie}/${movie.id}`)}
       className={scss.card}
     >
       <div className={scss.poster}>
-        <img src={movie.image} alt="" />
+        <img
+          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+          alt=""
+        />
 
         <div className={scss.category}>
-          {movie.categories.map((item, idx) => (
+          {movie.genre_ids.map((item, idx) => (
             <span key={idx}>{item}</span>
           ))}
         </div>
 
         <div className={scss.ratingCircle}>
           <CircularProgressbar
-            value={movie.rating}
-            text={movie.rating.toString()}
+            value={movie.vote_average}
+            text={movie.vote_average.toString()}
             background
             styles={buildStyles({
               backgroundColor: "#ffffffff",
@@ -45,13 +41,12 @@ const MoveCard = ({ movie }: MovieProps) => {
               textSize: "30px",
             })}
           />
-          <iframe src="" frameborder="0"></iframe>
         </div>
       </div>
 
       <div className={scss.cardText}>
-        <h3>{movie.name}</h3>
-        <span>{movie.date}</span>
+        <h3>{movie.title}</h3>
+        <span>{movie.release_date}</span>
       </div>
     </div>
   );

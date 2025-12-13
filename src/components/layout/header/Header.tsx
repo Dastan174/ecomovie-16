@@ -20,8 +20,8 @@ export default function Header() {
               <nav>
                 <GiHamburgerMenu />
 
-                <Link to="/">Movies</Link>
-                <Link to="/TV Shows">TV Shows</Link>
+                <Link to="/explore/movie">Movies</Link>
+                <Link to="/explore/tv">TV Shows</Link>
                 <CiSearch />
               </nav>
             </div>

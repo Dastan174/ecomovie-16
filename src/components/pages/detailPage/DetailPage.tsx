@@ -2,6 +2,7 @@ import { useState } from "react";
 import scss from "./detailPage.module.scss";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import InfoCarousel from "../../widgets/infoCarousel/InfoCarousel";
 
 export default function DetailPage() {
   const [modal, setModal] = useState<boolean>(false);
@@ -125,6 +126,29 @@ export default function DetailPage() {
               <div className={scss.line}></div>
             </div>
           </div>
+          <InfoCarousel
+            title="Actors"
+            isCircle={true}
+            data={[
+              {
+                name: "Mister Bean",
+                image:
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWchmcrtA5uEUhXTiqcO3ghT4iTzMy-SH9ww&s",
+                role: "mr bean",
+              },
+            ]}
+          />
+          <InfoCarousel
+            title="Trailers"
+            isCircle={false}
+            data={[
+              {
+                text: "Mister Bean",
+                imageT:
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWchmcrtA5uEUhXTiqcO3ghT4iTzMy-SH9ww&s",
+              },
+            ]}
+          />
         </div>
       </div>
       <div className={modal ? scss.modal : scss.none}>
