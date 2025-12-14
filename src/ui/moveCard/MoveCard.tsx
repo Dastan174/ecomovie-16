@@ -12,10 +12,7 @@ const MoveCard = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      onClick={() => navigate(`/${movie}/${movie.id}`)}
-      className={scss.card}
-    >
+    <div onClick={() => navigate(`/movie/${movie.id}`)} className={scss.card}>
       <div className={scss.poster}>
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
