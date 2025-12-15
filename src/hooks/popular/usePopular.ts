@@ -7,12 +7,12 @@ interface TrendingParams {
   type: "movie" | "tv";
 }
 
-export const usePopular = ({ type }: TrendingParams) =>
+export const usePopular = ({  type }: TrendingParams) =>
   useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
       const response = await axios.get<GetResponse>(
-        `https://api.themoviedb.org/3/${type}/popular/?api_key=${API_KEY}`
+        `https://api.themoviedb.org/3/${type}/popular?api_key=${API_KEY}`
       );
       return response.data.results;
     },
