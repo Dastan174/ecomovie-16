@@ -12,10 +12,7 @@ const MoveCard = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      onClick={() => navigate(`/${movie}/${movie.id}`)}
-      className={scss.card}
-    >
+    <div onClick={() => navigate(`/movie/${movie.id}`)} className={scss.card}>
       <div className={scss.poster}>
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -30,8 +27,8 @@ const MoveCard = ({ movie }: MovieProps) => {
 
         <div className={scss.ratingCircle}>
           <CircularProgressbar
-            value={movie.vote_average}
-            text={movie.vote_average.toString()}
+            value={Math.round(movie.vote_average) * 10}
+            text={Math.round(movie.vote_average).toString() }
             background
             styles={buildStyles({
               backgroundColor: "#ffffffff",
