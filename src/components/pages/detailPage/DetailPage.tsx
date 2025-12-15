@@ -14,9 +14,9 @@ export default function DetailPage() {
   const [modal, setModal] = useState<boolean>(false);
   const [videoSrc, setVideoSrc] = useState<string>("");
   const { data: oneMovie } = useMovie({ id });
+
   const { data: actors } = useActors({ movie_id: +id!, type: "movie" });
   const { data: trailers } = useTrailers({ movie_id: +id!, type: "movie" });
-
   let numString = oneMovie?.vote_average.toString();
   let num = Number(numString?.replace(".", ""));
   const formatDuration = (minutes: number) => {

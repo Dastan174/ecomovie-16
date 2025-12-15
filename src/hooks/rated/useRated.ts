@@ -12,8 +12,7 @@ export const useRated = ({ type }: TrendingParams) =>
     queryKey: ["rated"],
     queryFn: async () => {
       const response = await axios.get<GetResponse>(
-       `https://api.themoviedb.org/3/${type}/top_rated?api_key=${API_KEY}`
-
+        `https://api.themoviedb.org/3/${type}/top_rated?api_key=${API_KEY}`
       );
       return response.data.results;
     },
