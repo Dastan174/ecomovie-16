@@ -3,10 +3,24 @@ import scss from "./detailPage.module.scss";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import InfoCarousel from "../../widgets/infoCarousel/InfoCarousel";
+import { useMovie } from "../../../hooks/oneMovie/useMovie";
+import { useParams } from "react-router-dom";
 
 export default function DetailPage() {
+  const { id } = useParams();
+
   const [modal, setModal] = useState<boolean>(false);
   const [videoSrc, setVideoSrc] = useState<string>("");
+  const { data: oneMovie } = useMovie({ id });
+  let numString = oneMovie?.vote_average.toString();
+  let num = Number(numString?.replace(".", ""));
+  const formatDuration = (minutes: number) => {
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return `${h} h ${m} m`;
+  };
+  console.log(oneMovie?.backdrop_path);
+
   const open = () => {
     setVideoSrc("https://www.youtube.com/embed/YQ-qToZUybM?list=RDYQ-qToZUybM");
     setModal(true);
@@ -14,32 +28,36 @@ export default function DetailPage() {
 
   const close = () => {
     setModal(false);
-    setVideoSrc(""); // <— стоп видео
+    setVideoSrc("");
   };
   return (
-    <div className={scss.container}>
+    <div
+      className={scss.container}
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${oneMovie?.backdrop_path})`,
+      }}
+    >
       <div className={scss.bg}>
         <div className="container">
           <div className={scss.mainContainer}>
             <div className={scss.image}>
               <img
-                src="https://image.tmdb.org/t/p/original/pHyxb2RV5wLlboAwm9ZJ9qTVEDw.jpg"
+                src={`https://image.tmdb.org/t/p/original/${oneMovie?.poster_path}`}
                 alt="photo"
               />
             </div>
             <div className={scss.cardDetails}>
-              <h1>Chainsaw Man - The Movie: Reze Arc (2025)</h1>
+              <h1>{oneMovie?.title}</h1>
               <div className={scss.category}>
-                <p>Animation</p>
-                <p>Action</p>
-                <p>Romance</p>
-                <p>Fantasy</p>
+                {oneMovie?.genres.map((el) => (
+                  <p>{el.name}</p>
+                ))}
               </div>
               <div className={scss.rating}>
                 <span className={scss.ratingCircle}>
                   <CircularProgressbar
-                    value={70}
-                    text="7.9"
+                    value={num}
+                    text={`${oneMovie?.vote_average}`}
                     background
                     styles={buildStyles({
                       backgroundColor: "#04152d",
@@ -92,31 +110,26 @@ export default function DetailPage() {
               </div>
               <div className={scss.description}>
                 <h2>Overview</h2>
-                <p>
-                  In a brutal war between devils, hunters, and secret enemies, a
-                  mysterious girl named Reze has stepped into Denji's world, and
-                  he faces his deadliest battle yet, fueled by love in a world
-                  where survival knows no rules.
-                </p>
+                <p>{oneMovie?.overview}</p>
               </div>
               <div className={`${scss.info} ${scss.center}`}>
                 <div className={scss.text}>
                   <span>Status:</span>
-                  <p>Released</p>
+                  <p>{oneMovie?.status}</p>
                 </div>
                 <div className={scss.text}>
                   <span>Release Date:</span>
-                  <p>Sep 19, 2025</p>
+                  <p>{oneMovie?.release_date}</p>
                 </div>
                 <div className={scss.text}>
                   <span>Runtime:</span>
-                  <p>1h 40m</p>
+                  <p>{formatDuration(oneMovie?.runtime ?? 0)}</p>
                 </div>
               </div>
               <div className={scss.line}></div>
               <div className={scss.text}>
                 <span>Director:</span>
-                <p>Tatsuya Yoshihara</p>
+                <p></p>
               </div>
               <div className={scss.line}></div>
               <div className={scss.text}>

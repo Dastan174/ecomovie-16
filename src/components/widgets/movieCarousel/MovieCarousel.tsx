@@ -8,8 +8,9 @@ import type { Movie } from "../../../hooks/types";
 interface MovieCarouselProps {
   title: string;
   data: Movie[];
+  isSwitch: false;
 }
-const MovieCarousel = ({ title, data }: MovieCarouselProps) => {
+const MovieCarousel = ({ title, data, isSwitch }: MovieCarouselProps) => {
   const [click, setClick] = useState<boolean>(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const cardWidth = 220;
@@ -44,7 +45,11 @@ const MovieCarousel = ({ title, data }: MovieCarouselProps) => {
         <div className={scss.mainContainer}>
           <div className={scss.mainText}>
             <h3>{title}</h3>
-            <div className={scss.btns} onClick={clicked}>
+            <div
+              className={scss.btns}
+              onClick={clicked}
+              style={isSwitch ? { display: "none" } : { display: "flex" }}
+            >
               {click ? (
                 <button>Day</button>
               ) : (
