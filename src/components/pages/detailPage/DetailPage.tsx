@@ -19,7 +19,7 @@ export default function DetailPage() {
     const m = minutes % 60;
     return `${h} h ${m} m`;
   };
-  console.log(oneMovie?.runtime);
+  console.log(oneMovie?.backdrop_path);
 
   const open = () => {
     setVideoSrc("https://www.youtube.com/embed/YQ-qToZUybM?list=RDYQ-qToZUybM");
@@ -31,7 +31,12 @@ export default function DetailPage() {
     setVideoSrc("");
   };
   return (
-    <div className={scss.container}>
+    <div
+      className={scss.container}
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${oneMovie?.backdrop_path})`,
+      }}
+    >
       <div className={scss.bg}>
         <div className="container">
           <div className={scss.mainContainer}>

@@ -1,8 +1,7 @@
 .container {
-  background-image: url(https://image.tmdb.org/t/p/original/kfXgo2rMF1A19celCwLyQ4Xwpf8.jpg);
   background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
+  background-size: 100% 180vh;
   color: #fff;
   overflow: hidden;
 }
@@ -17,14 +16,11 @@
   padding-block: 40px;
   flex-direction: row;
 }
-.container .bg .mainContainer .image {
+.container .bg .mainContainer img {
   width: 350px;
   height: auto;
   min-width: 250px;
   border-radius: 12px;
-}
-.container .bg .mainContainer .image img {
-  width: 100%;
 }
 @media (max-width: 853px) {
   .container .bg .mainContainer {
