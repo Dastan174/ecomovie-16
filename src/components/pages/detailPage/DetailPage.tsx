@@ -145,7 +145,7 @@ export default function DetailPage() {
             </div>
           </div>
           <InfoCarousel title="Actors" isCircle={true} data={actors!} />
-          <InfoCarousel title="Trailers" isCircle={false} data={trailers} />
+          <InfoCarousel title="Trailers" isCircle={false} data={trailers!} />
         </div>
       </div>
       <div className={modal ? scss.modal : scss.none}>

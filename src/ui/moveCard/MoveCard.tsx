@@ -38,6 +38,7 @@ const MoveCard = ({ movie }: MovieProps) => {
               textSize: "30px",
             })}
           />
+
         </div>
       </div>
 

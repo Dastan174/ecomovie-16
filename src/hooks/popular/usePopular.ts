@@ -7,7 +7,7 @@ interface TrendingParams {
   type: "movie" | "tv";
 }
 
-export const usePopular = ({ type }: TrendingParams) =>
+export const usePopular = ({  type }: TrendingParams) =>
   useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
