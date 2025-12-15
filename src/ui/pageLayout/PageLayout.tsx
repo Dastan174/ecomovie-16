@@ -2,52 +2,15 @@ import { useLocation } from "react-router-dom";
 import Select from "../../shared/select/Select";
 import scss from "./PageLayout.module.scss";
 import MoveCard from "../moveCard/MoveCard";
+import type { Movie } from "../../hooks/types";
 
 interface PageLayoutProps {
-  typesData: any[];
+  typesData: Movie[];
 }
 
 const PageLayout = ({ typesData }: PageLayoutProps) => {
   const { pathname } = useLocation();
-  console.log(pathname);
-  const movies = [
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-    {
-      name: "Zootopia",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbsYMFIvTxIagOdjojl06i1joprdIv2sp2w&s",
-      date: "10 december",
-      rating: 7.0,
-      categories: ["animation", "drama"],
-      id: 1,
-    },
-  ];
+
   return (
     <section className={scss.pageLayout}>
       <div className="container">
@@ -62,7 +25,7 @@ const PageLayout = ({ typesData }: PageLayoutProps) => {
           </div>
         </div>
         <div className={scss.list}>
-          {typesData.map((el, idx) => (
+          {typesData?.map((el, idx) => (
             <MoveCard movie={el} key={idx} />
           ))}
         </div>

@@ -1,6 +1,17 @@
 .pageLayout {
   padding-block: 80px;
-
+  .pagesList {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 40px;
+      color: #ffffff;
+    }
+  }
   .list {
     display: flex;
     align-items: center;
@@ -20,4 +31,9 @@
       justify-content: space-between;
     }
   }
+}
+
+
+body {
+  background-color: #040528;
 }
