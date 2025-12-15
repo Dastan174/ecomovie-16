@@ -1,3 +1,4 @@
+import { useActors } from "../../../hooks/actors/useActors.ts";
 import ActorCard from "../../../ui/ActorCard/ActorCard.tsx";
 import TrailerCard from "../../../ui/TrailerCard/TrailerCard.tsx";
 import scss from "./infoCarousel.module.scss";
@@ -21,6 +22,7 @@ const InfoCarousel = ({ title, data, isCircle }: InfoCarouselProps) => {
   if (!data || data.length === 0) {
     return null;
   }
+  const { data: actors } = useActors({ type: "movie", movie_id: 232 });
 
   return (
     <div>
@@ -30,7 +32,7 @@ const InfoCarousel = ({ title, data, isCircle }: InfoCarouselProps) => {
           <div className={scss.carouselTrack}>
             {data.map((el, idx) =>
               isCircle ? (
-                <ActorCard actor={el} key={el.id || idx} />
+                <ActorCard data={actors!} actor={el} key={el.id || idx} />
               ) : (
                 <TrailerCard trailer={el} key={el.id || idx} />
               )
