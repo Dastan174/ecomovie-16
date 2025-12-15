@@ -8,7 +8,7 @@ import type { Movie } from "../../../hooks/types";
 interface MovieCarouselProps {
   title: string;
   data: Movie[];
-  isSwitch: false;
+  isSwitch: boolean;
 }
 const MovieCarousel = ({ title, data, isSwitch }: MovieCarouselProps) => {
   const [click, setClick] = useState<boolean>(false);

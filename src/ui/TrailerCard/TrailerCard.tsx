@@ -1,20 +1,19 @@
+import type { Trailer } from "../../hooks/types";
 import scss from "./trailerCard.module.scss";
 
 interface ITrailerProps {
-  trailer: ITrailer;
-}
-
-interface ITrailer {
-  imageT: string;
-  text: string;
-  id: number;
+  trailer: Trailer;
 }
 
 const TrailerCard = ({ trailer }: ITrailerProps) => {
   return (
     <div className={scss.card}>
-      <img src={trailer.imageT} alt="" />
-      <p>{trailer.text}</p>
+      <img src={trailer.iso_3166_1} alt="" />
+      <p>
+        {trailer.name.length > 24
+          ? trailer.name.slice(0, 24) + "..."
+          : trailer.name}
+      </p>
     </div>
   );
 };

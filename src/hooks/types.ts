@@ -48,6 +48,7 @@ export interface OneMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
 export interface ActorsResponse {
   id: number;
   cast: Cast[];

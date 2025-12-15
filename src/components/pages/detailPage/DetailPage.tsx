@@ -5,13 +5,24 @@ import "react-circular-progressbar/dist/styles.css";
 import InfoCarousel from "../../widgets/infoCarousel/InfoCarousel";
 import { useMovie } from "../../../hooks/oneMovie/useMovie";
 import { useParams } from "react-router-dom";
+import { useActors } from "../../../hooks/actors/useActors";
+import { useTrailers } from "../../../hooks/trailer/useTrailer";
+import MovieCarousel from "../../widgets/movieCarousel/MovieCarousel";
+import { useSimilar } from "../../../hooks/similar/useSimilar";
+import { useRecommend } from "../../../hooks/recommendation/useRecommend";
 
 export default function DetailPage() {
   const { id } = useParams();
-
   const [modal, setModal] = useState<boolean>(false);
   const [videoSrc, setVideoSrc] = useState<string>("");
   const { data: oneMovie } = useMovie({ id });
+  const { data: actors } = useActors({ movie_id: +id!, type: "movie" });
+  const { data: trailers } = useTrailers({ movie_id: +id!, type: "movie" });
+  const { data: similar } = useSimilar({ id: id!, type: "movie" });
+  const { data: recommends } = useRecommend({ id: id!, type: "movie" });
+  console.log(recommends);
+  
+
   let numString = oneMovie?.vote_average.toString();
   let num = Number(numString?.replace(".", ""));
   const formatDuration = (minutes: number) => {
@@ -139,28 +150,17 @@ export default function DetailPage() {
               <div className={scss.line}></div>
             </div>
           </div>
-          <InfoCarousel
-            title="Actors"
-            isCircle={true}
-            data={[
-              {
-                name: "Mister Bean",
-                image:
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWchmcrtA5uEUhXTiqcO3ghT4iTzMy-SH9ww&s",
-                role: "mr bean",
-              },
-            ]}
+          <InfoCarousel title="Actors" isCircle={true} data={actors!} />
+          <InfoCarousel title="Trailers" isCircle={false} data={trailers!} />\
+          <MovieCarousel
+            isSwitch={true}
+            title="Similar Movies"
+            data={similar}
           />
-          <InfoCarousel
-            title="Trailers"
-            isCircle={false}
-            data={[
-              {
-                text: "Mister Bean",
-                imageT:
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWchmcrtA5uEUhXTiqcO3ghT4iTzMy-SH9ww&s",
-              },
-            ]}
+          <MovieCarousel
+            isSwitch={true}
+            title="Recommendations"
+            data={recommends}
           />
         </div>
       </div>
