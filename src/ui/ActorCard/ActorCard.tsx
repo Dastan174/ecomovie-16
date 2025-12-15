@@ -1,24 +1,21 @@
+import type { Cast } from "../../hooks/types";
 import scss from "./actorCard.module.scss";
 
 interface IActorProps {
-  actor: IActor;
-}
-
-interface IActor {
-  image: string;
-  name: string;
-  role: string;
-  id: number;
+  actor: Cast;
 }
 
 const ActorCard = ({ actor }: IActorProps) => {
   return (
     <div>
       <div className={scss.card}>
-        <img src={actor.image} alt="" />
+        <img
+          src={`https://image.tmdb.org/t/p/original/${actor?.profile_path}`}
+          alt=""
+        />
         <div className={scss.text}>
-          <p>{actor.name}</p>
-          <span>{actor.role}</span>
+          <p>{actor.original_name}</p>
+          <span>{actor.character}</span>
         </div>
       </div>
     </div>

@@ -27,8 +27,8 @@ const MoveCard = ({ movie }: MovieProps) => {
 
         <div className={scss.ratingCircle}>
           <CircularProgressbar
-            value={Math.round(movie.vote_average) * 10}
-            text={Math.round(movie.vote_average).toString() }
+            value={movie.vote_average * 10}
+            text={movie.vote_average.toFixed(1).toString()}
             background
             styles={buildStyles({
               backgroundColor: "#ffffffff",
@@ -38,6 +38,7 @@ const MoveCard = ({ movie }: MovieProps) => {
               textSize: "30px",
             })}
           />
+
         </div>
       </div>
 
