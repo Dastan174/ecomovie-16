@@ -7,16 +7,22 @@ import { useMovie } from "../../../hooks/oneMovie/useMovie";
 import { useParams } from "react-router-dom";
 import { useActors } from "../../../hooks/actors/useActors";
 import { useTrailers } from "../../../hooks/trailer/useTrailer";
+import MovieCarousel from "../../widgets/movieCarousel/MovieCarousel";
+import { useSimilar } from "../../../hooks/similar/useSimilar";
+import { useRecommend } from "../../../hooks/recommendation/useRecommend";
 
 export default function DetailPage() {
   const { id } = useParams();
-
   const [modal, setModal] = useState<boolean>(false);
   const [videoSrc, setVideoSrc] = useState<string>("");
   const { data: oneMovie } = useMovie({ id });
-
   const { data: actors } = useActors({ movie_id: +id!, type: "movie" });
   const { data: trailers } = useTrailers({ movie_id: +id!, type: "movie" });
+  const { data: similar } = useSimilar({ id: id!, type: "movie" });
+  const { data: recommends } = useRecommend({ id: id!, type: "movie" });
+  console.log(recommends);
+  
+
   let numString = oneMovie?.vote_average.toString();
   let num = Number(numString?.replace(".", ""));
   const formatDuration = (minutes: number) => {
@@ -145,7 +151,17 @@ export default function DetailPage() {
             </div>
           </div>
           <InfoCarousel title="Actors" isCircle={true} data={actors!} />
-          <InfoCarousel title="Trailers" isCircle={false} data={trailers!} />
+          <InfoCarousel title="Trailers" isCircle={false} data={trailers!} />\
+          <MovieCarousel
+            isSwitch={true}
+            title="Similar Movies"
+            data={similar}
+          />
+          <MovieCarousel
+            isSwitch={true}
+            title="Recommendations"
+            data={recommends}
+          />
         </div>
       </div>
       <div className={modal ? scss.modal : scss.none}>

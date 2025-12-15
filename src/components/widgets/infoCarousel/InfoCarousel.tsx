@@ -1,20 +1,12 @@
 import { useActors } from "../../../hooks/actors/useActors.ts";
+import type { Cast, Trailer } from "../../../hooks/types.ts";
 import ActorCard from "../../../ui/ActorCard/ActorCard.tsx";
 import TrailerCard from "../../../ui/TrailerCard/TrailerCard.tsx";
 import scss from "./infoCarousel.module.scss";
 
-export interface IData {
-  text?: string;
-  image?: string;
-  imageT?: string;
-  name?: string;
-  role?: string;
-  id?: number;
-}
-
 export interface InfoCarouselProps {
   title: string;
-  data: IData[];
+  data: (Cast | Trailer)[];
   isCircle?: boolean;
 }
 
