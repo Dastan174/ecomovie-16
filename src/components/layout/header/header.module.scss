@@ -12,11 +12,25 @@
   display: flex;
   align-items: center;
   @media (max-width: 765px) {
+    // .nigth {
+    //   display: none !important;
+    //   nav {
+    //     display: none;
+    //   }
+    //   nav span {
+    //     display: block;
+    //   }
+    // }
+
     .nigth {
       display: none !important;
-      .burger {
-        display: block;
-      }
+    }
+    .nav {
+      display: none;
+    }
+    .burger {
+      display: block;
+      color: #fff;
     }
   }
 
@@ -32,9 +46,20 @@
     .left {
       display: flex;
       justify-content: start;
-      img {
-        width: 350px;
-        height: 25px;
+      align-items: center;
+      .lftimg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        img {
+          width: 150px;
+          height: 30px;
+        }
+        .jo img {
+          width: 40px;
+          height: 30px;
+        }
       }
     }
     .nigth {
@@ -55,6 +80,64 @@
       link {
         color: #fff;
       }
+      .burger {
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: white;
+      }
+      .nav {
+        display: flex;
+        gap: 15px;
+      }
     }
   }
 }
+// .container {
+//   max-width: 1580px;
+//   width: 100%;
+//   background: rgba(3, 1, 1, 0);
+//   backdrop-filter: blur(10px);
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 1000;
+//   height: 60px;
+//   display: flex;
+//   align-items: center;
+
+//   a {
+//     color: #fff;
+//   }
+
+//   .header {
+//     display: flex;
+//     justify-content: space-between;
+//     width: 100%;
+//   }
+
+//   .nigth {
+//     display: flex;
+//     align-items: center;
+//     gap: 15px;
+//   }
+
+//   /* ❌ бургер скрыт по умолчанию */
+//   .burger {
+//     display: none;
+//     font-size: 28px;
+//     cursor: pointer;
+//   }
+
+//   /* 📱 МОБИЛКА */
+//   @media (max-width: 765px) {
+//     .nigth {
+//       display: none;
+//     }
+
+//     .burger {
+//       display: block;
+//       color: white;
+//     }
+//   }
+// }

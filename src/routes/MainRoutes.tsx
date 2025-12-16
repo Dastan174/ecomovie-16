@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../components/pages/home/Home";
 import DetailPage from "../components/pages/detailPage/DetailPage";
 import PageLayout from "../ui/pageLayout/PageLayout";
+import Error from "../components/error/Error";
 
 const MainRoutes = () => {
   const routes = [
@@ -15,6 +16,8 @@ const MainRoutes = () => {
       {routes.map((el, idx) => (
         <Route path={el.link} element={el.element} key={idx} />
       ))}
+
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 };
